@@ -2,6 +2,8 @@ from enum import Enum
 import reflex as rx
 
 class FontSize(Enum):
+    LITTLE = "9px"
+    EXTRA_SMALL = "11px"
     SMALL = "14px",
     MEDIUM = "24px",
     LARGE = "36px",

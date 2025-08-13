@@ -2,26 +2,28 @@ import reflex as rx
 import datetime
 from ..styles.colors import Colors
 from ..styles.styles import FontSize
-from ..state import Tabla_ConsultaHorarios
+from ..state import ConsultaHorarios
 
 def calendar() -> rx.Component:
     return rx.box(
         rx.tablet_and_desktop(
             rx.input(
                 #min=datetime.datetime.now(), Falta configurar
-                default_value=Tabla_ConsultaHorarios.fecha_seleccionada,
+                default_value=ConsultaHorarios.fecha_seleccionada,
+                name="filtro_fecha",
                 type="date",
                 size="3",
-                on_change=Tabla_ConsultaHorarios.filter_fecha
+                on_change=ConsultaHorarios.filter_fecha
             ),
         ),
         rx.mobile_only(
             rx.input(
                 #min=datetime.datetime.now(), Falta configurar
-                default_value=Tabla_ConsultaHorarios.fecha_seleccionada,
+                default_value=ConsultaHorarios.fecha_seleccionada,
+                name="filtro_fecha",
                 type="date",
                 size="1",
-                on_change=Tabla_ConsultaHorarios.filter_fecha
+                on_change=ConsultaHorarios.filter_fecha
             ),
         ),
         #background="green"
@@ -105,20 +107,20 @@ def grupo() -> rx.Component:
     return rx.box(
         rx.tablet_and_desktop(
             rx.select(
-                Tabla_ConsultaHorarios.grupos,
+                #Tabla_ConsultaHorarios.grupos,
                 placeholder="Grupo",
                 size="3",
                 width="150px",
-                on_change=Tabla_ConsultaHorarios.filter_grupo,
+                #on_change=Tabla_ConsultaHorarios.filter_grupo,
             )
         ),
         rx.mobile_only(
             rx.select(
-                Tabla_ConsultaHorarios.grupos,
+               # Tabla_ConsultaHorarios.grupos,
                 placeholder="Grupo",
                 size="1",
                 width="80px",
-                on_change=Tabla_ConsultaHorarios.filter_grupo,
+                #on_change=Tabla_ConsultaHorarios.filter_grupo,
             )
         )
     )
@@ -127,23 +129,25 @@ def hora() -> rx.Component:
     return rx.box(
         rx.tablet_and_desktop(
             rx.select(
-                Tabla_ConsultaHorarios.horas,
-                default_value=Tabla_ConsultaHorarios.select_horas,
+                ConsultaHorarios.horas,
+                default_value=ConsultaHorarios.select_horas,
                 placeholder="Hora",
+                name="filtro_hora",
                 size="3",
                 width="150px",
-                on_change=Tabla_ConsultaHorarios.filter_hora,
+                on_change=ConsultaHorarios.filter_hora,
                 #on_mount=Tabla_ConsultaHorarios.informacion_horarios
             )
         ),
         rx.mobile_only(
             rx.select(
-                Tabla_ConsultaHorarios.horas,
-                default_value=Tabla_ConsultaHorarios.select_horas,
+                ConsultaHorarios.horas,
+                default_value=ConsultaHorarios.select_horas,
                 placeholder="Hora",
+                name="filtro_hora",
                 size="1",
                 width="80px",
-                on_change=Tabla_ConsultaHorarios.filter_hora,
+                on_change=ConsultaHorarios.filter_hora,
                 #on_mount=Tabla_ConsultaHorarios.informacion_horarios
             )
         )

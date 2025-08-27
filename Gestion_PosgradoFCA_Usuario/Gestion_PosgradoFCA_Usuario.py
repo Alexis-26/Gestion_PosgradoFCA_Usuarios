@@ -4,6 +4,8 @@ from .components.filtro import calendar, search_docente, search_materia, grupo, 
 #from .components.consulta_horarios import tabla_horarios, lista_horarios, matriz_horarios, mapa_primer_nivel, mapa_segundo_nivel
 from .components.mapa import mapa_primer_nivel, mapa_segundo_nivel
 from .components.matriz import horario_table_1, horario_table_2
+from .styles.utils import Texto_Desktop, Texto_Mobile
+from .state import ConsultaHorarios
 
 def reservacion_page() -> rx.Component:
     return rx.box(
@@ -23,12 +25,20 @@ def reservacion_page() -> rx.Component:
                 # ),
                 rx.vstack(
                     rx.hstack(
-                        calendar(),
-                        hora(),
-                        # grupo(),
-                        justify="center",
-                        spacing="3",
-                        margin_top="10px",
+                        rx.text("Fecha del dia de hoy:", font_size=Texto_Desktop.SUBTITULOS.value, weight="bold"),
+                        rx.text(ConsultaHorarios.fecha_actual, font_size=Texto_Desktop.SUBTITULOS.value),
+                    ),
+                    rx.vstack(
+                        rx.text("Filtros", font_size=Texto_Desktop.SECCIONES.value),
+                        rx.hstack(
+                            calendar(),
+                            hora(),
+                            # grupo(),
+                            justify="center",
+                            spacing="3",
+                            margin_top="10px",
+                        ),
+                        align="center",
                     ),
                     #mis_reservaciones(),
                     align="center"
@@ -90,10 +100,19 @@ def reservacion_page() -> rx.Component:
                     #search_docente(),
                     #search_materia(),
                     rx.hstack(
-                        calendar(),
-                        hora(),
-                        # grupo(),
-                        spacing="3"
+                        rx.text("Fecha del dia de hoy:", font_size=Texto_Mobile.SUBTITULOS.value, weight="bold"),
+                        rx.text(ConsultaHorarios.fecha_actual, font_size=Texto_Mobile.SUBTITULOS.value),
+                    ),
+                    rx.vstack(
+                        rx.text("Filtros", font_size=Texto_Mobile.SECCIONES.value),
+                        rx.hstack(
+                            calendar(),
+                            hora(),
+                            # grupo(),
+                            spacing="3"
+                        ),
+                        spacing="0",
+                        align="center",
                     ),
                     #mis_reservaciones(),
                     spacing="3",

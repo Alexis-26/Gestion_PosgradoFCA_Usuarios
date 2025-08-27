@@ -1,7 +1,8 @@
 import reflex as rx
 from ..styles.colors import Colors
 from ..styles.styles import FontSize
-from ..styles.utils import Imagenes
+from ..styles.utils import Imagenes, Texto_Desktop, Texto_Mobile
+
 
 def navbar() -> rx.Component:
     return rx.box(
@@ -11,9 +12,9 @@ def navbar() -> rx.Component:
             
             # Título centrado con logo
             rx.hstack(
-                rx.image(src=Imagenes.LOGO.value, width=["20px", "60px"]) ,
-                rx.text("REGISTROS DE HORARIOS", 
-                        font_size=["16px", FontSize.EXTRA_LARGE.value],
+                rx.image(src=Imagenes.LOGO_UABC_FCA.value, width=["60px", "120px"]) ,
+                rx.text("CONSULTA DE HORARIOS", 
+                        font_size=[Texto_Mobile.SUBTITULOS.value, Texto_Desktop.TITULO_PRINCIPAL.value],
                         weight="bold", 
                         color=Colors.WHITE.value) ,
                 justify="center",

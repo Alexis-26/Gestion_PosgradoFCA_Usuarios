@@ -7,7 +7,7 @@ config = rx.Config(
     frontend_port=int(os.getenv("FRONTEND_PORT", 3000)),
 
     # Railway te pasa un puerto dinámico en la variable PORT
-    backend_port=int(os.getenv("PORT", 8000)),
+    backend_port=int(os.environ.get("PORT", 8000)),
 
     # URL de la base de datos (en Railway la defines en variables)
     db_url=os.getenv("DB_URL", "mysql+pymysql://root:password@localhost:3306/Gestion_PosgradoDB"),

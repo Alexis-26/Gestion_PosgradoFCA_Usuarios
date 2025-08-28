@@ -13,5 +13,5 @@ config = rx.Config(
     db_url=os.getenv("DB_URL", "mysql+pymysql://root:password@localhost:3306/Gestion_PosgradoDB"),
 
     # URL del backend (para API)
-    api_url=os.getenv("API_URL", "http://localhost:8000"),
+    api_url=os.getenv("API_URL", "https://gestionposgradofcausuarios-production.up.railway.app"),
 )

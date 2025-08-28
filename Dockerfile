@@ -20,6 +20,6 @@ EXPOSE 3000
 EXPOSE 8000
 
 # Construye el frontend para producción y luego corre el backend.
-# El comando `reflex export` genera el frontend en el directorio `.web`.
-# El comando `reflex run --no-frontend` inicia el backend y sirve los archivos de `.web`.
-CMD ["reflex", "export", "--frontend-only", "--backend-only"]
+# El comando `reflex export` crea el frontend en el directorio `.web`.
+# El comando `reflex run` inicia el backend y sirve los archivos de `.web`.
+CMD ["reflex", "export", "--frontend-only", "&&", "reflex", "run", "--no-frontend"]

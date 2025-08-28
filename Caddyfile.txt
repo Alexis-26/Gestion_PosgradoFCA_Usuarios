@@ -1,21 +1,21 @@
 # global options
-admin off # theres no need for the admin api in railway's environment
-persist_config off # storage isn't persistent anyway
-auto_https off # railway handles https for us, this would cause issues if left enabled
+admin off
+persist_config off
+auto_https off
 log {
 	# runtime logs
-	format json # set runtime log format to json mode 
-	servers {
-		# server options
-		trusted_proxies static private_ranges # trust railway's proxy
-	}
+	format json
+}
+servers {
+	# server options
+	trusted_proxies static private_ranges
 }
 
 :{$PORT} {
 	# site block, listens on the $PORT environment variable, automatically assigned by railway
 	log {
 		# access logs
-		format json # set access log format to json mode
+		format json
 	}
 
 	# serve from the '.web/_static' folder (reflex exports into the '.web/_static' folder)

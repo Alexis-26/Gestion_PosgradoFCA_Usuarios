@@ -1,5 +1,5 @@
 import reflex as rx
-from .components.navbar import navbar
+from .components.navbar import navbar, navbar_mobile
 from .components.filtro import calendar, search_docente, search_materia, grupo, hora
 #from .components.consulta_horarios import tabla_horarios, lista_horarios, matriz_horarios, mapa_primer_nivel, mapa_segundo_nivel
 from .components.mapa import mapa_primer_nivel, mapa_segundo_nivel
@@ -29,7 +29,7 @@ def reservacion_page() -> rx.Component:
                         rx.text(ConsultaHorarios.fecha_actual, font_size=Texto_Desktop.SUBTITULOS.value),
                     ),
                     rx.vstack(
-                        rx.text("Filtros", font_size=Texto_Desktop.SECCIONES.value),
+                        rx.text("Filtros de Fecha y Hora", font_size=Texto_Desktop.SECCIONES.value),
                         rx.hstack(
                             calendar(),
                             hora(),
@@ -39,30 +39,40 @@ def reservacion_page() -> rx.Component:
                             margin_top="10px",
                         ),
                         align="center",
+                        spacing="0"
                     ),
                     #mis_reservaciones(),
                     align="center"
                 ),
-                margin_top="10px",
+                #margin_top="10px",
                 padding="10px",
+                position="sticky",
+                top="0",
+                z_index="999",
+                background="#ffffff",
+                box_shadow = "rgba(0, 0, 0, 0.15) 0px 2px 8px"
             ),
 
             # INFORMACION DE LAS RESERVACIONES DEL PISO 1
             rx.box(
                 #tabla_horarios(),
-                rx.hstack(
-                    rx.box(
-                        mapa_primer_nivel(),
-                        position="sticky",
-                        top="0",
-                        width="100%"
-                    ),
-                    horario_table_1(),
-                    #background="red",
-                    spacing="0"
-                ),
+                mapa_primer_nivel(),
                 #background="pink",
                 margin_top="20px",
+                # margin_left="20px",
+                # margin_right="20px",
+                # padding="20px",
+                # border_radius="10px",
+                # box_shadow = "rgba(0, 0, 0, 0.15) 0px 2px 8px"
+            ),
+            rx.flex(
+                #tabla_horarios(),
+                horario_table_1(),
+                #background="pink",
+                margin_top="20px",
+                justify="center",
+                width="100%",
+                padding="40px"
                 # margin_left="20px",
                 # margin_right="20px",
                 # padding="20px",
@@ -73,19 +83,23 @@ def reservacion_page() -> rx.Component:
             # INFORMACION DE LAS RESERVACIONES DEL PISO 2
             rx.box(
                 #tabla_horarios(),
-                rx.hstack(
-                    rx.box(
-                        mapa_segundo_nivel(),
-                        position="sticky",
-                        top="0",
-                        width="100%"
-                    ),
-                    horario_table_2(),
-                    #background="red",
-                    spacing="0"
-                ),
-                # background="#f2f3f7",
+                mapa_segundo_nivel(),
+                #background="pink",
                 margin_top="20px",
+                # margin_left="20px",
+                # margin_right="20px",
+                # padding="20px",
+                # border_radius="10px",
+                # box_shadow = "rgba(0, 0, 0, 0.15) 0px 2px 8px"
+            ),
+            rx.flex(
+                #tabla_horarios(),
+                horario_table_2(),
+                #background="pink",
+                margin_top="20px",
+                justify="center",
+                width="100%",
+                padding="40px"
                 # margin_left="20px",
                 # margin_right="20px",
                 # padding="20px",
@@ -94,7 +108,7 @@ def reservacion_page() -> rx.Component:
             ),
         ),
         rx.mobile_and_tablet(
-            navbar(),
+            navbar_mobile(),
             rx.box(
                 rx.vstack(
                     #search_docente(),
@@ -104,7 +118,7 @@ def reservacion_page() -> rx.Component:
                         rx.text(ConsultaHorarios.fecha_actual, font_size=Texto_Mobile.SUBTITULOS.value),
                     ),
                     rx.vstack(
-                        rx.text("Filtros", font_size=Texto_Mobile.SECCIONES.value),
+                        rx.text("Filtros de Fecha y Hora", font_size=Texto_Mobile.SECCIONES.value),
                         rx.hstack(
                             calendar(),
                             hora(),
@@ -119,13 +133,19 @@ def reservacion_page() -> rx.Component:
                     align="center",
                 ),
                 # background="#f2f3f7",
-                margin_top="10px",
+                #margin_top="10px",
                 # margin_left="20px",
                 # margin_right="20px",
                 # padding="5px",
                 # border_radius="10px",
                 # box_shadow = "rgba(0, 0, 0, 0.15) 0px 2px 8px"
                 #width="80%",
+                padding="10px",
+                position="sticky",
+                top="0",
+                z_index="999",
+                background="#ffffff",
+                box_shadow = "rgba(0, 0, 0, 0.15) 0px 2px 8px"
             ),
             rx.box(
                 mapa_primer_nivel(),
@@ -137,10 +157,13 @@ def reservacion_page() -> rx.Component:
                 # border_radius="10px",
                 # box_shadow = "rgba(0, 0, 0, 0.15) 0px 2px 8px"
             ),
-            rx.box(
+            rx.flex(
                 horario_table_1(),
                 # background="#f2f3f7",
                 margin_top="10px",
+                padding="5px",
+                justify="center",
+                width="100%",
                 # margin_left="10px",
                 # margin_right="10px",
                 # padding="10px",
@@ -157,10 +180,13 @@ def reservacion_page() -> rx.Component:
                 # border_radius="10px",
                 # box_shadow = "rgba(0, 0, 0, 0.15) 0px 2px 8px"
             ),
-            rx.box(
+            rx.flex(
                 horario_table_2(),
                 # background="#f2f3f7",
                 margin_top="10px",
+                padding="5px",
+                justify="center",
+                width="100%",
                 # margin_left="10px",
                 # margin_right="10px",
                 # padding="10px",

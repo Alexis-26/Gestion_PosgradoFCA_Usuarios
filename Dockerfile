@@ -1,8 +1,8 @@
 # Usa la imagen base de Python 3.11.
 FROM python:3.11-slim
 
-# Instala unzip, que Reflex necesita para descomprimir dependencias.
-RUN apt-get update && apt-get install -y unzip
+# Instala unzip y curl, que Reflex necesita para descomprimir y descargar dependencias.
+RUN apt-get update && apt-get install -y unzip curl
 
 # Establece el directorio de trabajo dentro del contenedor.
 WORKDIR /app

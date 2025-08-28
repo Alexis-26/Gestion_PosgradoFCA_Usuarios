@@ -14,4 +14,8 @@ config = rx.Config(
 
     # URL del backend (para API)
     api_url=os.getenv("API_URL", "https://gestionposgradofcausuarios-production.up.railway.app"),
+    # Permitir que el frontend en Vercel se conecte vía WebSocket
+    allowed_hosts=[
+        "frontend-gpfca-usuarios.vercel.app"
+    ],
 )

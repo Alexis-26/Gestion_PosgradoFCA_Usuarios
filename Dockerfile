@@ -23,4 +23,4 @@ EXPOSE 8000
 RUN reflex export --frontend-only
 
 # Comando para iniciar el backend sirviendo el frontend exportado
-CMD ["sh", "-c", "reflex run --no-frontend --env prod --host 0.0.0.0 --port $PORT"]
+CMD ["sh", "-c", "reflex run --no-frontend --env prod --host 0.0.0.0 --port ${PORT:-8080}"]

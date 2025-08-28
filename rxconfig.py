@@ -1,9 +1,17 @@
 import reflex as rx
+import os
 
 config = rx.Config(
     app_name="Gestion_PosgradoFCA_Usuario",
-    frontend_port=3000,
-    backend_port=8000,
-    db_url="mysql+pymysql://root:GWqLlujpGEFqvQnhLspoIldtXyFDlZxm@autorack.proxy.rlwy.net:31857/Gestion_PosgradoDB",
-    api_url="https://gestionposgradofcausuarios-production.up.railway.app"
+    # Puerto del frontend solo cuando corres en local
+    frontend_port=int(os.getenv("FRONTEND_PORT", 3000)),
+
+    # Railway te pasa un puerto dinámico en la variable PORT
+    backend_port=int(os.getenv("PORT", 8000)),
+
+    # URL de la base de datos (en Railway la defines en variables)
+    db_url=os.getenv("DB_URL", "mysql+pymysql://root:password@localhost:3306/Gestion_PosgradoDB"),
+
+    # URL del backend (para API)
+    api_url=os.getenv("API_URL", "http://localhost:8000"),
 )

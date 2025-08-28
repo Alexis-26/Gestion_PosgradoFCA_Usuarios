@@ -9,17 +9,18 @@ WORKDIR /app
 
 # Copia los archivos de requerimientos.
 COPY requirements.txt ./
+
 # Instala las dependencias de Python.
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copia todo el resto del proyecto.
 COPY . .
 
-# Expone los puertos.
-EXPOSE 3000
+# Expone solo el puerto que Railway usará
 EXPOSE 8000
 
-# Construye el frontend para producción y luego corre el backend.
-# El comando `reflex export` crea el frontend en el directorio `.web`.
-# El comando `reflex run` inicia el backend y sirve los archivos de `.web`.
-CMD ["reflex", "export", "--frontend-only", "&&", "reflex", "run", "--no-frontend"]
+# Construye el frontend al momento de build
+RUN reflex export --frontend-only
+
+# Comando para iniciar el backend sirviendo el frontend exportado
+CMD ["sh", "-c", "reflex run --no-frontend --env prod --host 0.0.0.0 --port $PORT"]

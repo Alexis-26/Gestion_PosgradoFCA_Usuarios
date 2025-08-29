@@ -1,6 +1,9 @@
 from .model import MYSQLDB
 import reflex as rx
 from datetime import datetime
+import pytz
+
+tz_bc = pytz.timezone("America/Tijuana")
 
 class ConsultaHorarios(rx.State):
     _db:MYSQLDB = MYSQLDB()
@@ -44,13 +47,15 @@ class ConsultaHorarios(rx.State):
 
     @rx.var
     def fecha_hoy(self) -> str:
-        fecha = datetime.now().strftime("%Y-%m-%d")
-        return fecha
-    
+        return datetime.now(tz_bc).strftime("%Y-%m-%d")
+
+    @rx.var
+    def fecha_hoy_formato(self) -> str:
+        return datetime.now(tz_bc).strftime("%d-%m-%Y")
+
     @rx.var
     def hora_actual(self) -> str:
-        """Devuelve la hora actual en formato HH:00"""
-        return f"{datetime.now().hour:02d}:00"
+        return f"{datetime.now(tz_bc).hour:02d}:00"
     
     def filter_fecha(self, fecha:str):
         self.lista_horarios = []
@@ -79,6 +84,8 @@ class ConsultaHorarios(rx.State):
         if self.fecha_seleccionada == "" and self.select_horas == "":
             self.fecha_seleccionada = self.fecha_hoy
             self.select_horas = self.hora_actual
+
+        print(self.select_horas)
         resultado = self._db.consulta_asignacion_fecha(self.fecha_seleccionada)
         print("PROCESANDO...")  
         self.horario_dict_1 = {

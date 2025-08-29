@@ -16,7 +16,7 @@ config = rx.Config(
     db_url=os.getenv("DB_URL", "mysql+pymysql://root:password@localhost:3306/Gestion_PosgradoDB"), # NECESARIO ACTIVAR ANTES DE SUBIR A HOST
    
    # ESTA ES LA BD EN SERVIDOR PERO ESTA EN VARIABLE DE ENTORNO
-    #db_url=("mysql+pymysql://root:GWqLlujpGEFqvQnhLspoIldtXyFDlZxm@autorack.proxy.rlwy.net:31857/Gestion_PosgradoDB"),
+   # db_url=("mysql+pymysql://root:GWqLlujpGEFqvQnhLspoIldtXyFDlZxm@autorack.proxy.rlwy.net:31857/Gestion_PosgradoDB"),
     
     # URL del backend (para API)
     # ESTO DEBE APUNTAR A RAILWAY CUANDO SE EXPORTE EL FRONTED

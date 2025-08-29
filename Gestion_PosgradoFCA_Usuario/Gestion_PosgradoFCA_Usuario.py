@@ -26,7 +26,7 @@ def reservacion_page() -> rx.Component:
                 rx.vstack(
                     rx.hstack(
                         rx.text("Fecha del dia de hoy:", font_size=Texto_Desktop.SUBTITULOS.value, weight="bold"),
-                        rx.text(ConsultaHorarios.fecha_actual, font_size=Texto_Desktop.SUBTITULOS.value),
+                        rx.text(rx.moment(ConsultaHorarios.fecha_hoy, format="DD-MM-YYYY"), font_size=Texto_Desktop.SUBTITULOS.value),
                     ),
                     rx.vstack(
                         rx.text("Filtros de Fecha y Hora", font_size=Texto_Desktop.SECCIONES.value),
@@ -115,7 +115,7 @@ def reservacion_page() -> rx.Component:
                     #search_materia(),
                     rx.hstack(
                         rx.text("Fecha del dia de hoy:", font_size=Texto_Mobile.SUBTITULOS.value, weight="bold"),
-                        rx.text(ConsultaHorarios.fecha_actual, font_size=Texto_Mobile.SUBTITULOS.value),
+                        rx.text(rx.moment(ConsultaHorarios.fecha_hoy, format="DD-MM-YYYY"), font_size=Texto_Mobile.SUBTITULOS.value),
                     ),
                     rx.vstack(
                         rx.text("Filtros de Fecha y Hora", font_size=Texto_Mobile.SECCIONES.value),

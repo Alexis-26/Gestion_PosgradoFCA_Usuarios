@@ -35,12 +35,22 @@ class ConsultaHorarios(rx.State):
     #                 "18:00": [False, False], "19:00":[False, False], "20:00":[False, False], "21:00":[False, False], "22:00":[False, False]}
     # select_horario:bool = True
     # menu:bool = False
-    select_horas:str = f"{datetime.now().hour:02d}:00"
-    fecha_seleccionada:str = datetime.now().strftime("%Y-%m-%d")
+    select_horas:str = ""
+    fecha_seleccionada:str = ""
     grupo = ""
-    fecha_actual = datetime.today().strftime("%d-%m-%Y")
+    #fecha_actual = datetime.today().strftime("%d-%m-%Y")
     # fecha_fin_habilitado:bool = True
     # hora_fijo_checked:bool = False
+
+    @rx.var
+    def fecha_hoy(self) -> str:
+        fecha = datetime.now().strftime("%Y-%m-%d")
+        return fecha
+    
+    @rx.var
+    def hora_actual(self) -> str:
+        """Devuelve la hora actual en formato HH:00"""
+        return f"{datetime.now().hour:02d}:00"
     
     def filter_fecha(self, fecha:str):
         self.lista_horarios = []
@@ -66,6 +76,9 @@ class ConsultaHorarios(rx.State):
         return f"{horas:02d}:{minutos:02d}"
     
     def informacion_horarios(self):
+        if self.fecha_seleccionada == "" and self.select_horas == "":
+            self.fecha_seleccionada = self.fecha_hoy
+            self.select_horas = self.hora_actual
         resultado = self._db.consulta_asignacion_fecha(self.fecha_seleccionada)
         print("PROCESANDO...")  
         self.horario_dict_1 = {

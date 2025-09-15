@@ -194,52 +194,6 @@ def reservacion_page() -> rx.Component:
                 # box_shadow = "rgba(0, 0, 0, 0.15) 0px 2px 8px"
             ),
         ),
-        # rx.dialog.root(
-        #     rx.dialog.content(
-        #         rx.dialog.title(
-        #             "Formulario de Reservación",
-        #             display="none"
-        #         ),
-        #         rx.dialog.description(
-        #             "Formulario para reservar un salón",
-        #             display="none"
-        #         ),
-        #         rx.box(
-        #             form_reservar(),
-        #             width="100%",
-        #         ),
-        #         style={
-        #             "background": "transparent",
-        #             "box_shadow": "none",
-        #             "max_width": "900px",
-        #             "width": "100%",
-        #         },
-        #     ),
-        #     open=AsignacionHorarios.mostrar_formulario,
-        # ),
-        # rx.dialog.root(
-        #     rx.dialog.content(
-        #         rx.dialog.title(
-        #             "Formulario de Cambio de Contraseña",
-        #             display="none"
-        #         ),
-        #         rx.dialog.description(
-        #             "Formulario para Cambiar la Contraseña",
-        #             display="none"
-        #         ),
-        #         rx.box(
-        #             form_cambio(),
-        #             width="100%",
-        #         ),
-        #         style={
-        #             "background": "transparent",
-        #             "box_shadow": "none",
-        #             "max_width": "900px",
-        #             "width": "100%",
-        #         },
-        #     ),
-        #     open=FormCambio.mostrar_formulario,
-        # ),
         background_color="#FFFFFF",
         width="100%",
         min_height="100vh",

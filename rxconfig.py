@@ -27,5 +27,6 @@ config = rx.Config(
     allowed_hosts=[
         "frontend-gpfca-usuarios.vercel.app" # NECESARIO ACTIVAR ANTES DE SUBIR A HOST
     ],
+    show_built_with_reflex=0
 )
 # SE DEBE DE UTILIZAR EL DOCKERFILE QUE SE ENCUENTRA AQUI PARA SUBIR EL BACKEND

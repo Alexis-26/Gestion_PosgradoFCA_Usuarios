@@ -126,11 +126,12 @@ def grupo() -> rx.Component:
     )
 
 def hora() -> rx.Component:
+    hora = ConsultaHorarios.hora_actual
     return rx.box(
         rx.tablet_and_desktop(
             rx.select(
                 ConsultaHorarios.horas,
-                default_value=ConsultaHorarios.hora_actual,
+                default_value=hora,
                 placeholder="Hora",
                 name="filtro_hora",
                 size="3",
@@ -142,7 +143,7 @@ def hora() -> rx.Component:
         rx.mobile_only(
             rx.select(
                 ConsultaHorarios.horas,
-                default_value=ConsultaHorarios.hora_actual,
+                default_value=hora,
                 placeholder="Hora",
                 name="filtro_hora",
                 size="1",

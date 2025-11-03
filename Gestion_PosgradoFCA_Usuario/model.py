@@ -1,5 +1,5 @@
+from sqlalchemy import text  # Importa la función text para las operaciones SQL
 import reflex as rx
-from sqlalchemy import text  # Importa la función text esto es porque esta,os consultando de manera cruda
 
 class MYSQLDB(rx.Base):
     def consulta_horarios(self):

@@ -3,7 +3,10 @@ import os
 
 config = rx.Config(
     app_name="Gestion_PosgradoFCA_Usuario",
-
+        plugins=[
+        rx.plugins.SitemapPlugin(),
+        rx.plugins.TailwindV4Plugin(),
+    ],
     # Y ESTE ES OPCIONAL (PRUEBA)
     # Puerto del frontend solo cuando corres en local
     frontend_port=int(os.getenv("FRONTEND_PORT", 3000)),

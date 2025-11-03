@@ -34,22 +34,8 @@ def dialog_form_normal(salon:str) -> rx.Component:
                 background=Colors.SECONDARY_GREEN.value,
                 border="solid",
                 border_color="green",
-                #on_click=lambda:AsignacionHorarios.seleccion_salon(salon)
             )
         ),
-        # rx.dialog.content(
-        #         rx.box(
-        #             form_reservar(),
-        #             width="100%",
-        #         ),
-        #         style={
-        #             "background": "transparent",
-        #             "box_shadow": "none",
-        #             "max_width": "900px",
-        #             "width": "100%",
-        #         },
-        # ),
-        # open=AsignacionHorarios.salon_abierto == salon,  # Solo si quieres controlarlo por estado
     )
 
 def dialog_form_izquierda(salon:str):
@@ -75,22 +61,8 @@ def dialog_form_izquierda(salon:str):
                     border_color="green",
                     padding="20px",
                     background=Colors.SECONDARY_GREEN.value,
-                    #on_click=lambda:AsignacionHorarios.seleccion_salon(salon)
             )
         ),
-        # rx.dialog.content(
-        #         rx.box(
-        #             form_reservar(),
-        #             width="100%",
-        #         ),
-        #         style={
-        #             "background": "transparent",
-        #             "box_shadow": "none",
-        #             "max_width": "900px",
-        #             "width": "100%",
-        #         },
-        # ),
-        # open=AsignacionHorarios.salon_abierto == salon,  # Solo si quieres controlarlo por estado
     )
 
 def dialog_form_derecha(salon:str):
@@ -116,22 +88,8 @@ def dialog_form_derecha(salon:str):
                     border_color="green",
                     padding="20px",
                     background=Colors.SECONDARY_GREEN.value,
-                    #on_click=lambda:AsignacionHorarios.seleccion_salon(salon)
             )
         ),
-        # rx.dialog.content(
-        #         rx.box(
-        #             form_reservar(),
-        #             width="100%",
-        #         ),
-        #         style={
-        #             "background": "transparent",
-        #             "box_shadow": "none",
-        #             "max_width": "900px",
-        #             "width": "100%",
-        #         },
-        # ),
-        # open=AsignacionHorarios.salon_abierto == salon,  # Solo si quieres controlarlo por estado
     )
 
 def salon_normal(info):
@@ -457,25 +415,6 @@ def mapa_primer_nivel():
                     spacing="2"
                 ),
                 # Primera fila (101 y 103)
-                # rx.hstack(
-                #     render_salon("101"),
-                #     render_salon("103"),
-                #     width=["95%", "80%"],
-                #     justify="between"
-                # ),
-                
-                # # Segunda fila (102, A/B, 104)
-                # rx.hstack(
-                #     render_salon("102"),
-                #     rx.flex(
-                #         render_salon_especial_izquierda("A"),
-                #         render_salon_especial_derecha("B"),
-                #         spacing="2"
-                #     ),
-                #     render_salon("104"),
-                #     width=["95%", "80%"],
-                #     justify="between"
-                # ),
                 rx.grid(
                     render_salon("101"),
                     rx.box(),  # vacío
@@ -497,15 +436,6 @@ def mapa_primer_nivel():
                 #background="red",
                 width="100%",
             ),
-            # center_content=True,
-            # padding="0px",
-            # padding_bottom="10px",
-            # background_image="url('/salones_c.png')",
-            # background_size="84%",  # Usa 'contain' o un tamaño específico como '80%'
-            # background_position="center",
-            # background_repeat="no-repeat",
-            # width="100%",
-            # height="100%",
         ),
         rx.mobile_and_tablet(
             rx.vstack(
@@ -542,15 +472,6 @@ def mapa_primer_nivel():
                 spacing="2",
                 width="100%",
             ),
-            # center_content=True,
-            # padding="0px",
-            #padding_bottom="10px",
-            #background_image="url('/salones_c.png')",
-            #background_size="84%",  # Usa 'contain' o un tamaño específico como '80%'
-            #background_position="center",
-            #background_repeat="no-repeat",
-            # width="100%",
-            # height="100%",
         ),
     )
 
@@ -571,24 +492,6 @@ def mapa_segundo_nivel():
                             font_size=[FontSize.SMALL.value, Texto_Desktop.SECCIONES.value]),
                     spacing="2"
                 ),
-                # rx.hstack(
-                #     render_salon("201"),
-                #     rx.spacer(),
-                #     render_salon("203"),
-                #     width=["95%", "80%"],
-                #     justify="between"
-                # ),
-                # rx.hstack(
-                #     render_salon("202"),
-                #     rx.flex(
-                #         render_salon_especial_izquierda("C"),
-                #         render_salon_especial_derecha("D"),
-                #         spacing="2"
-                #     ),
-                #     render_salon("204"),
-                #     width=["95%", "80%"],
-                #     justify="between"
-                # ),
                 rx.grid(
                     render_salon("201"),
                     rx.box(),  # vacío
@@ -609,13 +512,6 @@ def mapa_segundo_nivel():
                 spacing="2",
                 width="100%",
             ),
-            # center_content=True,
-            # padding="0px",
-            # padding_bottom="10px",
-            # background_image="url('/salones_c.png')",
-            # background_size="84%",  # Usa 'contain' o un tamaño específico como '80%'
-            # background_position="center",
-            # background_repeat="no-repeat",
         ),
         rx.mobile_and_tablet(
             rx.vstack(
@@ -631,24 +527,6 @@ def mapa_segundo_nivel():
                             font_size=Texto_Mobile.SECCIONES.value),
                     spacing="2"
                 ),
-                # rx.hstack(
-                #     render_salon("201"),
-                #     rx.spacer(),
-                #     render_salon("203"),
-                #     width=["95%", "80%"],
-                #     justify="between"
-                # ),
-                # rx.hstack(
-                #     render_salon("202"),
-                #     rx.flex(
-                #         render_salon_especial_izquierda("C"),
-                #         render_salon_especial_derecha("D"),
-                #         spacing="2"
-                #     ),
-                #     render_salon("204"),
-                #     width=["95%", "80%"],
-                #     justify="between"
-                # ),
                 rx.grid(
                     render_salon("201"),
                     rx.box(),  # vacío
@@ -671,10 +549,5 @@ def mapa_segundo_nivel():
             ),
             center_content=True,
             padding="0px",
-            # padding_bottom="10px",
-            # background_image="url('/salones_c.png')",
-            # background_size="84%",  # Usa 'contain' o un tamaño específico como '80%'
-            # background_position="center",
-            # background_repeat="no-repeat",
         ),
     )

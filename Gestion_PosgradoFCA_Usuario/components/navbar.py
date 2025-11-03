@@ -7,10 +7,6 @@ from ..styles.utils import Imagenes, Texto_Desktop, Texto_Mobile
 def navbar() -> rx.Component:
     return rx.box(
         rx.flex(
-            # Elemento vacío para balancear el lado izquierdo
-            #rx.box(width=["60px", "160px"]) ,
-            
-            # Título centrado con logo
             rx.hstack(
                 rx.image(src=Imagenes.LOGO_UABC_FCA.value, width=["60px", "120px"]) ,
                 rx.text("CONSULTA DE HORARIOS", 
@@ -18,14 +14,7 @@ def navbar() -> rx.Component:
                         weight="bold", 
                         color=Colors.WHITE.value) ,
                 justify="center",
-            ) ,
-            
-            # Botón en el lado derecho
-            # rx.hstack(
-            #     cambio_password(),
-            #     cerrar_sesion(),
-            # ),
-
+            ),
             justify="center",
             align="center",
             width="100%",
@@ -41,10 +30,6 @@ def navbar() -> rx.Component:
 def navbar_mobile() -> rx.Component:
     return rx.box(
         rx.flex(
-            # Elemento vacío para balancear el lado izquierdo
-            #rx.box(width=["60px", "160px"]) ,
-            
-            # Título centrado con logo
             rx.hstack(
                 rx.image(src=Imagenes.LOGO_UABC_FCA.value, width="60px") ,
                 rx.text("CONSULTA DE HORARIOS", 
@@ -52,14 +37,7 @@ def navbar_mobile() -> rx.Component:
                         weight="bold", 
                         color=Colors.WHITE.value) ,
                 justify="center",
-            ) ,
-            
-            # Botón en el lado derecho
-            # rx.hstack(
-            #     cambio_password(),
-            #     cerrar_sesion(),
-            # ),
-
+            ),
             justify="center",
             align="center",
             width="100%",

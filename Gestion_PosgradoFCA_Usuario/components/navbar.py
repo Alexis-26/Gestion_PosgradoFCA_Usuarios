@@ -1,6 +1,11 @@
+"""
+Define la barra de navegación (Navbar) principal de la aplicación.
+
+Este archivo contiene los componentes visuales para la cabecera
+del sitio, mostrando el logo de la UABC y el título de la aplicación.
+"""
 import reflex as rx
 from ..styles.colors import Colors
-from ..styles.styles import FontSize
 from ..styles.utils import Imagenes, Texto_Desktop, Texto_Mobile
 
 
